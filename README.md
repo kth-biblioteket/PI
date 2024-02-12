@@ -35,6 +35,9 @@ services:
       - "traefik.http.routers.pi.tls.certresolver=myresolver"
     volumes:
       - /local/docker/pi/config.php.inc:/var/www/html/PI/ISBN/config.php.inc
+      - /local/docker/pi/config.php.inc:/var/www/html/PI/DiVA/config.php.inc
+      - /local/docker/pi/DiVA/DATAFILER:/var/www/html/PI/DiVA/DATAFILER
+      - /local/docker/pi/DiVA/sqlserwebb/DATAFILER:/var/www/html/PI/DiVA/sqlserwebb/DATAFILER
     networks:
       - "apps-net"
 
@@ -80,10 +83,14 @@ REPO_TYPE=ref
 
 4. Skapa folder "local/docker/pi/dbinit"
 5. Skapa init.sql från repots dbinit/init.sql
-6. Skapa deploy_ref.yml i github actions
-7. Skapa deploy_prod.yml i github actions
-8. Github Actions bygger en dockerimage i github packages
-9. Starta applikationen med docker compose up -d --build i "local/docker/pi"
+6. Skapa folder /local/docker/pi/DiVA/sqlserwebb/DATAFILER
+7. Sätt rättigheter/ägare: sudo chown -R www-data:www-data /local/docker/pi/DiVA/sqlserwebb/DATAFILER
+8. Skapa folder /local/docker/pi/DiVA/DATAFILER
+9. Sätt rättigheter/ägare: sudo chown -R www-data:www-data /local/docker/pi/DiVA/DATAFILER
+10. Skapa deploy_ref.yml i github actions
+11. Skapa deploy_prod.yml i github actions
+12. Github Actions bygger en dockerimage i github packages
+13. Starta applikationen med docker compose up -d --build i "local/docker/pi"
 
 
 

@@ -15,6 +15,9 @@ services:
       - "traefik.http.routers.pi.tls.certresolver=myresolver"
     volumes:
       - /local/docker/pi/config.php.inc:/var/www/html/PI/ISBN/config.php.inc
+      - /local/docker/pi/config.php.inc:/var/www/html/PI/DiVA/config.php.inc
+      - /local/docker/pi/DiVA/DATAFILER:/var/www/html/PI/DiVA/DATAFILER
+      - /local/docker/pi/DiVA/sqlserwebb/DATAFILER:/var/www/html/PI/DiVA/sqlserwebb/DATAFILER
     networks:
       - "apps-net"
 
@@ -44,3 +47,4 @@ volumes:
 networks:
   apps-net:
     external: true
+
