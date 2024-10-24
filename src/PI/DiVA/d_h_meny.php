@@ -19,7 +19,7 @@
 
 <link href="Site_utan_storlek.css" rel="stylesheet">
 
-<?php include('include_diva.html'); 
+<?php include('include_diva.html');  ?>
  
             $anv = "pi_anv";
             $ord = "V#puBL09";
