@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-    session_start();
 
 <!DOCTYPE html PUBLIC "-//w3c//DTD XHTMLm 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
