@@ -21,8 +21,8 @@
 
 <?php include('include_diva.html'); 
  
-            $anv = 'pi_anv';
-            $ord = 'V#puBL09';
+            $anv = "pi_anv";
+            $ord = "V#puBL09";
             $username = $anv;
             $password = $ord;
             $dbname = "hant_diva";
