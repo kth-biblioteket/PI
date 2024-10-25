@@ -935,7 +935,7 @@ Tar bort copyright-texter i Abstract <br />
 </form>
 
 <br /><br /><br />
-<a href='d_importmeny.php'>TILL MENYN</a>
+<a href='d_importmeny.php'>TILLBAKA</a>
 
 </body>
 </html>
