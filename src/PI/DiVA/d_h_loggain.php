@@ -46,7 +46,7 @@ function validateForm() {
 
     $_SESSION['granskad'] = "";
 
-    if (strlen($anv) > 0 && strlen($ord) > 0) {
+
 
         try {
             
@@ -73,7 +73,7 @@ function validateForm() {
             echo '</script>';
         }
 
-    }
+   
 
 ?>
 
