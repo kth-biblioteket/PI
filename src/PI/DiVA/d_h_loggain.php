@@ -79,7 +79,7 @@ function validateForm() {
 <br/>
 <h2>INLOGGNING</h2>
 
-<form name="myForm" onsubmit="return validateForm()" action="d_loggain.php" method="post">
+<form name="myForm" onsubmit="return validateForm()" action="d_h_loggain.php" method="post">
 
 Användarnamn: 
 <br /><input type="text" name="Anv" /> <br />
