@@ -52,8 +52,7 @@ function validateForm() {
     if (strlen($anv) > 0 && strlen($ord) > 0) {
 
         try {
-            $username = $anv;
-            $password = $ord;
+            
 	    $username = "pi_anv";
             $password = "V#puBL09";
             $dbname = "hant_diva";
