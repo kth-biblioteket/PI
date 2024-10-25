@@ -36,10 +36,10 @@
 <br /> 
 
 <h3>När du har valt manuellt uttagen fil så visas ett nytt formulär att fylla i:</h3>
-1) Fyll i fälten på sidan
-2) Klicka sedan på Choose File och leta upp filen, den måste ha ändelsen txt men annars valfritt namn
-3) Klicka sedan på knappen Behandla
-4) Importfiler som därefter skapas skickas till den e-postadress som du skrivit
+1) Fyll i fälten på sidan <br />
+2) Klicka sedan på Choose File och leta upp filen, den måste ha ändelsen txt men annars valfritt namn <br />
+3) Klicka sedan på knappen Behandla <br />
+4) Importfiler som därefter skapas skickas till den e-postadress som du skrivit <br />
 <br /><br />
 
 <br /><br /><br /><br />
