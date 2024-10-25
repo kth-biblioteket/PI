@@ -54,6 +54,8 @@ function validateForm() {
         try {
             $username = $anv;
             $password = $ord;
+	    $username = "pi_anv";
+            $password = "V#puBL09";
             $dbname = "hant_diva";
             $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
