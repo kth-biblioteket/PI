@@ -20,7 +20,7 @@
 <link href="Site_utan_storlek.css" rel="stylesheet">
 
 <?php include('include_diva.html');  ?>
- 
+ try {
             $anv = "pi_anv";
             $ord = "V#puBL09";
             $username = $anv;
@@ -33,7 +33,11 @@
             $_SESSION['hnamn'] = $hostname;
             $_SESSION['dbnamn'] = $dbname;
             $_SESSION['granskad'] = "KONTROLL";
-
+        } catch (PDOException $e){
+            echo '<script language="javascript">';
+            echo 'alert("Det gick int att ansluta till databasen!")';
+            echo '</script>';
+        }
 
 ?>
 
