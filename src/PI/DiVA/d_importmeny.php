@@ -35,18 +35,15 @@
 
 <br /> 
 
-<h3>SÅ HÄR GÖR DU:</h3>
-* Lägg den fil du vill behandla i den uppkopplade mappen DATAFILER.<br />
-* För att behandla en fil från WoS måste den döpas om till ISI.txt.<br />
-* För att behandla en fil från Scopus måste den döpas om till Scopus.txt.<br />
-* När programmet meddelar att filen är färdigbehandlad, skapas en utfil som kan importeras till DiVA.<br />
-* Finns det poster med alltför många författare i WoS-filen, så skapas även en utfil där totala antalet författare och titel anges.<br />
-* Om du anger ditt namn genom att välja handläggare från listan, så får utfilerna ditt namn som en del av filnamnet så att det syns att det är dina filer.<br />
-* Alla dina filer kan du sedan lägga i mappen med ditt namn som finns i mappen DATAFILER.
+<h3>När du har valt manuellt uttagen fil så visas ett nytt formulär att fylla i:</h3>
+1) Fyll i fälten på sidan <br />
+2) Klicka sedan på Choose File och leta upp filen, den måste ha ändelsen txt men annars valfritt namn <br />
+3) Klicka sedan på knappen Behandla <br />
+4) Importfiler som därefter skapas skickas till den e-postadress som du skrivit <br />
 <br /><br />
-NY VERSION - valfritt filnamn, men måste ha ändelsen txt. Välj fil och ladda upp för bearbetning. Utfilerna skickas till angiven e-postadress.
+
 <br /><br /><br /><br />
-<a href='d_meny.php'>TILL HUVUDMENYN</a>
+<a href='d_h_meny.php'>TILL MENYN</a>
 
 </body>
 </html>

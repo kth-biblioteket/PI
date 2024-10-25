@@ -38,7 +38,13 @@
             $_SESSION['ord'] = $password;
             $_SESSION['hnamn'] = $hostname;
             $_SESSION['dbnamn'] = $dbname;
-            $_SESSION['granskad'] = "KONTROLL";		
+            $_SESSION['granskad'] = "KONTROLL";
+            echo '<script language="javascript">';
+            echo 'alert("Inloggad!")';
+            echo '</script>';		
+            // Sessionsvariabler för att hindra reload
+            //$_SESSION['b_org_id'] = "";
+            //
 
         } catch (PDOException $e){
             echo '<script language="javascript">';
