@@ -19,24 +19,7 @@
 
     <?php include('include_meny.html'); ?>
 
-<script>
 
-function validateForm() {
-
-    var x = document.forms["myForm"]["Anv"].value;
-	var y = document.forms["myForm"]["Ord"].value;
-    if (x == null || x == "") {
-        alert("Användarid måste anges!");
-        return false;
-    }
-    if (y == null || y == "") {
-        alert("Lösenordet måste anges!");
-        return false; 
-    }	
-
-}
-
-</script>
 
 </head>
 
@@ -80,17 +63,7 @@ function validateForm() {
 <br/>
 <h2>INLOGGNING</h2>
 
-<form name="myForm" onsubmit="return validateForm()" action="d_h_loggain.php" method="post">
 
-Användarnamn: 
-<br /><input type="text" name="Anv" /> <br />
-Lösenord:
-<br /><input type="password" name="Ord" /> <br />
-<br />
-<br />
-<input type="submit" name="loggain" value="Logga in"/>
-
-</form>
 
 <br /><br />
 
