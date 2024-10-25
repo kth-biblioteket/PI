@@ -44,9 +44,6 @@ function validateForm() {
 
 <?php
 
-    $anv = $_POST['Anv'];
-    $ord = $_POST['Ord'];
-
     $_SESSION['granskad'] = "";
 
     if (strlen($anv) > 0 && strlen($ord) > 0) {
@@ -58,8 +55,8 @@ function validateForm() {
             $dbname = "hant_diva";
             $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $_SESSION['anv'] = $anv;
-            $_SESSION['ord'] = $ord;
+            $_SESSION['anv'] = $username;
+            $_SESSION['ord'] = $password;
             $_SESSION['hnamn'] = $hostname;
             $_SESSION['dbnamn'] = $dbname;
             $_SESSION['granskad'] = "KONTROLL";
