@@ -13,13 +13,11 @@
 
     <meta charset="utf-8">
 
-    <title>INLOGGNING</title>
+    <title>MENY</title>
 
     <link href="Site_utan_storlek.css" rel="stylesheet">
 
     <?php include('include_meny.html'); ?>
-
-
 
 </head>
 
@@ -28,8 +26,6 @@
 <?php
 
     $_SESSION['granskad'] = "";
-
-
 
         try {
             
@@ -52,18 +48,14 @@
 
         } catch (PDOException $e){
             echo '<script language="javascript">';
-            echo 'alert("Fel vid inloggning till databasen!")';
+            echo 'alert("Det gick inta att ansluta till databasen!")';
             echo '</script>';
-        }
-
-   
+        }   
 
 ?>
 
 <br/>
-<h2>INLOGGNING</h2>
-
-
+<h2>MENY</h2>
 
 <br /><br />
 
