@@ -95,7 +95,8 @@ KTH-id: <br />
 <b>Senaste uppdatering ORCID-data:&nbsp;&nbsp;</b>
 <input type="text" name="Maxdatum" value="<?php echo $max_datum_orcid; ?>" disabled />
 
-<a href='d_h_meny.php'>TILL MENYN</a>    
+  
+
 <br /><br /><br />
     
 </form>
