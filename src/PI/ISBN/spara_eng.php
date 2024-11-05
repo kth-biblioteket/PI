@@ -27,7 +27,6 @@
     header("Access-Control-Allow-Origin: https://apps.lib.kth.se");
     
     $Typ = $_POST['Typ'];
-    $Ddatum = $_POST['Dispdatum'];
     $TRITA = $_POST['TRITA'];
     $Titel = $_POST['Titel'];
     $KTHid = $_POST['KTHid'];
@@ -102,14 +101,15 @@
                         $stmt = $pdo->prepare("INSERT INTO reg_isbn 
                 		(TRITA,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
                 		VALUES (trim(:TRITA),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");
-                        $stmt->bindParam(':TRITA', $TRITA);              		
+                                     		
 			}
 			else {
                         $stmt = $pdo->prepare("INSERT INTO reg_isbn 
-                		(Dispdatum,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
-                		VALUES (trim(:Ddatum),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");
-                        $stmt->bindParam(':Ddatum', $Ddatum);     
+                		(TRITA,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
+                		VALUES (trim(:TRITA),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");
+                            
 			}
+	    $stmt->bindParam(':TRITA', $TRITA);		
             $stmt->bindParam(':Epost', $Epost);
             $stmt->bindParam(':KTHid', $KTHid);
             $stmt->bindParam(':Fnamn', $Fnamn);
