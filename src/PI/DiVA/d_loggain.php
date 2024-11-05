@@ -77,7 +77,7 @@ function validateForm() {
 ?>
 
 <br/>
-<h2>INLOGGNING ***</h2>
+<h2>INLOGGNING</h2>
 
 <form name="myForm" onsubmit="return validateForm()" action="d_loggain.php" method="post">
 
