@@ -27,7 +27,7 @@
 
 <ul>
 
-	<li><h3><a href='d_importmeny.php'>BEHANDLA IMPORTFIL</a></h3></li>
+	<! <li><h3><a href='d_importmeny.php'>BEHANDLA IMPORTFIL</a></h3></li> >
 	<li><h3><a href='d_soek_personal.php'>LETA KTH-ANSTÄLLDA</a></h3></li>
 	<li><h3><a href='d_isbn_meny.php'>ISBN-HANTERING</a></h3></li>	
 
