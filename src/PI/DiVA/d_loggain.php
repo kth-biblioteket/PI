@@ -65,7 +65,7 @@ function validateForm() {
             // Sessionsvariabler för att hindra reload
             //$_SESSION['b_org_id'] = "";
             //
-            header('Location: /PI/DiVA/d_isbn_meny.php');
+            header('Location: /PI/DiVA/d_meny.php');
         } catch (PDOException $e){
             echo '<script language="javascript">';
             echo 'alert("Fel vid inloggning till databasen!")';
