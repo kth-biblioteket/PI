@@ -147,6 +147,32 @@
 
 	echo $dropdown;
 
+    	// Hämta organisationstyper ur tabellen Organization_type
+
+    	$sql_o = "SELECT Org_type_eng FROM Organization_type";
+
+    	// Execute it, or let it throw an error message if there's a problem.
+
+    	$stmt = $dbh->query( $sql_o );
+
+        $dropdown = "<select name='organization_type' hidden id='id_orgtyp_dold'>";
+
+    	foreach ($stmt as $row) {
+
+        $dropdown .= "\r\n<option value='{$row['Org_type_eng']}'>{$row['Org_type_eng']}</option>";
+
+    	}
+
+    	$dropdown .= "\r\n</select>";
+
+    	echo $dropdown;
+
+        $sql_orgtyp = "SELECT Org_type_eng FROM Organization_type WHERE Org_type_code = '" . $orgtyp . "'";
+        $stmt = $dbh->query( $sql_orgtyp );
+        foreach ($stmt as $row) {
+            $org_typ_eng = $row['Org_type_eng'];      
+        } 
+
 ?>
 
 <h2>ORGANISATIONSNAMN</h2>
