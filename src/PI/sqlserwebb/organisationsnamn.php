@@ -158,6 +158,20 @@ Engelskt namn: <br />
 <input type="text" name="Engelsktnamn" size="70" /><br /><br />
 ROR-id: <br />
 <input type="text" name="RORid" size="70" /><br /><br />
+Organisationsty:<br />
+<select id="Organisationstyp">
+<option value=""></option>
+<option value="CO">Företag</option>
+<option value="UC">Högskola</option>
+<option value="IN">Institut</option>
+<option value="UN">Universitet</option>
+<option value="UO">Universitet övrigt</option>
+<option value="UH">Universitetssjukhus</option>
+<option value="HL">Övr sjuk och hälsovård</option>
+<option value="OP">Övr offentliga org</option>
+<option value="OT">Övrigf</option>	
+</select>
+<br />	
 Kommentar: <br />
 <input type="text" name="Kommentar" size="70" /><br /><br />
 Exakt namnsökning
