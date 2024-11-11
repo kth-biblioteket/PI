@@ -206,7 +206,6 @@ Engelskt namn: <br />
 ROR-id: <br />
 <input type="text" name="RORid" size="70" /><br /><br />
 Organisationstyp:</br>
-                <input type="text" name="Orgtyp_ut" value="<?php echo $org_typ_eng; ?>" style="background-color:grey;color:white;border:0" disabled />&nbsp;&nbsp;
                 <input type="text" name="Orgtyp_nu" value="<?php echo $org_typ_eng; ?>" hidden />
                 <select id="id_orgtyp" name="Orgtyp_till">
                     <option>Ange organisationstyp</option>
