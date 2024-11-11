@@ -20,6 +20,7 @@
 
     function f_populera_Land() {
         // Populera
+	f_populera_Orgtyp();      
         var e = document.getElementById("id_country");
         var strUser = e.options[3].text;
         document.getElementById("id_soek_land_s").value = strUser;
@@ -104,7 +105,7 @@
 	
     function f_Ladda_sida() {
         f_populera_Land();
-        document.getElementById("id_soek_land_s").value = "*";
+        document.getElementById("id_soek_land_s").value = "*";	  
     }
 
 </script>
