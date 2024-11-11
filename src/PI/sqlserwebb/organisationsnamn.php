@@ -82,6 +82,26 @@
         return true;
     }
 
+    function f_populera_Orgtyp() {
+        // Populera
+        orgtyplista = [];
+        orgtyppost = "";
+        var x_antal = document.getElementById("id_orgtyp_dold").length;
+        var e = document.getElementById("id_orgtyp_dold");
+        for (i = 0; i < x_antal; i++) {
+            orgtyppost = e.options[i].text;
+            orgtyplista.push(orgtyppost);
+        }
+        var soeklista = document.getElementById("id_orgtyp");
+        for (var i = 0; i < orgtyplista.length; i++) {
+            var opt = orgtyplista[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            soeklista.appendChild(el);
+        }
+    }
+	
     function f_Ladda_sida() {
         f_populera_Land();
         document.getElementById("id_soek_land_s").value = "*";
