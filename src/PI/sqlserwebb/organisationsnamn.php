@@ -205,20 +205,13 @@ Engelskt namn: <br />
 <input type="text" name="Engelsktnamn" size="70" /><br /><br />
 ROR-id: <br />
 <input type="text" name="RORid" size="70" /><br /><br />
-Organisationstyp:<br />
-<select id="Orgtyp">
-<option value=""></option>
-<option value="CO">Företag</option>
-<option value="UC">Högskola</option>
-<option value="IN">Institut</option>
-<option value="UN">Universitet</option>
-<option value="UO">Universitet övrigt</option>
-<option value="UH">Universitetssjukhus</option>
-<option value="HL">Övr sjuk och hälsovård</option>
-<option value="OP">Övr offentliga org</option>
-<option value="OT">Övrigf</option>	
-</select>
-<br /><br />		
+Organisationstyp:</br>
+                <input type="text" name="Orgtyp_ut" value="<?php echo $org_typ_eng; ?>" style="background-color:grey;color:white;border:0" disabled />&nbsp;&nbsp;
+                <input type="text" name="Orgtyp_nu" value="<?php echo $org_typ_eng; ?>" hidden />
+                <select id="id_orgtyp" name="Orgtyp_till">
+                    <option>Ange organisationstyp</option>
+                </select>
+<br /> <br />		
 Kommentar: <br />
 <input type="text" name="Kommentar" size="70" /><br /><br />
 Exakt namnsökning
