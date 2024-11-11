@@ -158,8 +158,8 @@ Engelskt namn: <br />
 <input type="text" name="Engelsktnamn" size="70" /><br /><br />
 ROR-id: <br />
 <input type="text" name="RORid" size="70" /><br /><br />
-Organisationsty:<br />
-<select id="Organisationstyp">
+Organisationstyp:<br />
+<select id="Orgtyp">
 <option value=""></option>
 <option value="CO">Företag</option>
 <option value="UC">Högskola</option>
