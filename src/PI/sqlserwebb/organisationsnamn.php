@@ -171,7 +171,7 @@ Organisationstyp:<br />
 <option value="OP">Övr offentliga org</option>
 <option value="OT">Övrigf</option>	
 </select>
-<br />	
+<br /><br />	
 Kommentar: <br />
 <input type="text" name="Kommentar" size="70" /><br /><br />
 Exakt namnsökning
