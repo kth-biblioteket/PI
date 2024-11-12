@@ -35,7 +35,7 @@
     $orgid = $_POST['Orgid'];
     $rorid = $_POST['RORid'];
     $kommentar = $_POST['Kommentar'];
-
+    $orgtyp_till = $_POST['Orgtyp_till'];
     $username = $_SESSION['anv'];
     $password = $_SESSION['ord'];
     $hostname = $_SESSION['hnamn'];
@@ -66,16 +66,18 @@
         $_SESSION['orgid'] = $orgid;
         $_SESSION['RORid'] = $rorid;
         $_SESSION['Kommentar'] = $kommentar;
+	$_SESSION['orgtyp_till'] = $orgtyp_till;    
     }
     else {
-    $username = $_SESSION['anv']; 
+        $username = $_SESSION['anv']; 
         $land = $_SESSION['land'];
         $lok_namn = $_SESSION['lokaltnamn'];
         $eng_namn = $_SESSION['engelsktnamn'];
         $orgtyp = $_SESSION['orgtyp'];
         $orgid = $_SESSION['orgid']; 
         $rorid = $_SESSION['RORid']; 
-        $kommentar = $_SESSION['Kommentar'];           
+        $kommentar = $_SESSION['Kommentar'];
+	$orgtyp_till = $_SESSION['orgtyp_till'];    
     }
 
 	// Write out our query.
@@ -139,15 +141,22 @@
        
         }
     }
-    if (strlen($orgtyp) > 0)
+    if (strlen($orgtyp_till) > 0)
     {
+
+        $sql_orgtyp = "SELECT Org_type_code FROM Organization_type WHERE Org_type_eng = '" . $orgtyp_till . "'";
+        $stmt = $dbh->query( $sql_orgtyp);
+        foreach ($stmt as $row) {
+            $org_type_code = $row['Org_type_code'];      
+        }    
+	    
         if (strlen($sqldel) > 0)
     	{
-    		$sqldel .= " AND upper(Org_type_code) like upper('%$orgtyp%')";
+    		$sqldel .= " AND upper(Org_type_code) like upper('%$org_type_code%')";
     	}	
         else
         {
-		$sqldel .= " upper(Org_type_code) like upper('%$orgtyp%')";        
+		$sqldel .= " upper(Org_type_code) like upper('%$org_type_code%')";        
         }
     }
     if (strlen($rorid) > 0)

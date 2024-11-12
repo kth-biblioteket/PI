@@ -20,6 +20,7 @@
 
     function f_populera_Land() {
         // Populera
+	f_populera_Orgtyp();      
         var e = document.getElementById("id_country");
         var strUser = e.options[3].text;
         document.getElementById("id_soek_land_s").value = strUser;
@@ -82,9 +83,29 @@
         return true;
     }
 
+    function f_populera_Orgtyp() {
+        // Populera
+        orgtyplista = [];
+        orgtyppost = "";
+        var x_antal = document.getElementById("id_orgtyp_dold").length;
+        var e = document.getElementById("id_orgtyp_dold");
+        for (i = 0; i < x_antal; i++) {
+            orgtyppost = e.options[i].text;
+            orgtyplista.push(orgtyppost);
+        }
+        var soeklista = document.getElementById("id_orgtyp");
+        for (var i = 0; i < orgtyplista.length; i++) {
+            var opt = orgtyplista[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            soeklista.appendChild(el);
+        }
+    }
+	
     function f_Ladda_sida() {
         f_populera_Land();
-        document.getElementById("id_soek_land_s").value = "*";
+        document.getElementById("id_soek_land_s").value = "*";	  
     }
 
 </script>
@@ -126,6 +147,32 @@
 
 	echo $dropdown;
 
+    	// Hämta organisationstyper ur tabellen Organization_type
+
+    	$sql_o = "SELECT Org_type_eng FROM Organization_type";
+
+    	// Execute it, or let it throw an error message if there's a problem.
+
+    	$stmt = $dbh->query( $sql_o );
+
+        $dropdown = "<select name='organization_type' hidden id='id_orgtyp_dold'>";
+
+    	foreach ($stmt as $row) {
+
+        $dropdown .= "\r\n<option value='{$row['Org_type_eng']}'>{$row['Org_type_eng']}</option>";
+
+    	}
+
+    	$dropdown .= "\r\n</select>";
+
+    	echo $dropdown;
+
+        $sql_orgtyp = "SELECT Org_type_eng FROM Organization_type WHERE Org_type_code = '" . $orgtyp . "'";
+        $stmt = $dbh->query( $sql_orgtyp );
+        foreach ($stmt as $row) {
+            $org_typ_eng = $row['Org_type_eng'];      
+        } 
+
 ?>
 
 <h2>ORGANISATIONSNAMN</h2>
@@ -158,6 +205,13 @@ Engelskt namn: <br />
 <input type="text" name="Engelsktnamn" size="70" /><br /><br />
 ROR-id: <br />
 <input type="text" name="RORid" size="70" /><br /><br />
+
+Organisationstyp:</br>
+                <input type="text" name="Orgtyp_nu" value="<?php echo $org_typ_eng; ?>" hidden />
+                <select id="id_orgtyp" name="Orgtyp_till">
+                    <option>Ange organisationstyp</option>
+                </select>
+<br /> <br />		
 
 Kommentar: <br />
 <input type="text" name="Kommentar" size="70" /><br /><br />
