@@ -36,7 +36,7 @@
     $rorid = $_POST['RORid'];
     $kommentar = $_POST['Kommentar'];
     $orgtyp_till = $_POST['Orgtyp_till'];
-
+echo $orgtyp_till;
     $username = $_SESSION['anv'];
     $password = $_SESSION['ord'];
     $hostname = $_SESSION['hnamn'];
@@ -192,7 +192,7 @@
     $sql .= $sqldel;
 
 	// Execute it, or let it throw an error message if there's a problem.
-
+echo $sql;
 	$stmt = $dbh->query( $sql );
 	
 	echo "<table border='1'>";
