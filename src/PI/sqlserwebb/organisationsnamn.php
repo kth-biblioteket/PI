@@ -205,12 +205,14 @@ Engelskt namn: <br />
 <input type="text" name="Engelsktnamn" size="70" /><br /><br />
 ROR-id: <br />
 <input type="text" name="RORid" size="70" /><br /><br />
+
 Organisationstyp:</br>
                 <input type="text" name="Orgtyp_nu" value="<?php echo $org_typ_eng; ?>" hidden />
                 <select id="id_orgtyp" name="Orgtyp_till">
                     <option>Ange organisationstyp</option>
                 </select>
 <br /> <br />		
+
 Kommentar: <br />
 <input type="text" name="Kommentar" size="70" /><br /><br />
 Exakt namnsökning

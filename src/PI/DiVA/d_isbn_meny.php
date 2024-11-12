@@ -30,7 +30,10 @@
 <h3><a href='d_visa_statistik.php'>STATISTIK</a></h3>
 <br /><br />
 
+
  <a href='d_meny.php'>TILL HUVUDMENYN</a> 
+
+
 
 </body>
 </html>
