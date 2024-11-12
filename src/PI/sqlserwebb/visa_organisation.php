@@ -36,7 +36,6 @@
     $rorid = $_POST['RORid'];
     $kommentar = $_POST['Kommentar'];
     $orgtyp_till = $_POST['Orgtyp_till'];
-echo $orgtyp_till;
     $username = $_SESSION['anv'];
     $password = $_SESSION['ord'];
     $hostname = $_SESSION['hnamn'];
@@ -70,7 +69,7 @@ echo $orgtyp_till;
 	$_SESSION['orgtyp_till'] = $orgtyp_till;    
     }
     else {
-    $username = $_SESSION['anv']; 
+        $username = $_SESSION['anv']; 
         $land = $_SESSION['land'];
         $lok_namn = $_SESSION['lokaltnamn'];
         $eng_namn = $_SESSION['engelsktnamn'];
@@ -192,7 +191,7 @@ echo $orgtyp_till;
     $sql .= $sqldel;
 
 	// Execute it, or let it throw an error message if there's a problem.
-echo $sql;
+
 	$stmt = $dbh->query( $sql );
 	
 	echo "<table border='1'>";
