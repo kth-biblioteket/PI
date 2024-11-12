@@ -142,22 +142,22 @@ echo $orgtyp_till;
        
         }
     }
-    if (strlen($orgtyp) > 0)
+    if (strlen($orgtyp_till) > 0)
     {
 
         $sql_orgtyp = "SELECT Org_type_code FROM Organization_type WHERE Org_type_eng = '" . $orgtyp_till . "'";
         $stmt = $dbh->query( $sql_orgtyp);
         foreach ($stmt as $row) {
-            $org_typ_code = $row['Org_type_code'];      
+            $org_type_code = $row['Org_type_code'];      
         }    
 	    
         if (strlen($sqldel) > 0)
     	{
-    		$sqldel .= " AND upper(Org_type_code) like upper('%$orgtypcode%')";
+    		$sqldel .= " AND upper(Org_type_code) like upper('%$org_type_code%')";
     	}	
         else
         {
-		$sqldel .= " upper(Org_type_code) like upper('%$orgtypcode%')";        
+		$sqldel .= " upper(Org_type_code) like upper('%$org_type_code%')";        
         }
     }
     if (strlen($rorid) > 0)
