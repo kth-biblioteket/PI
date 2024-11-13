@@ -33,6 +33,7 @@
     $Enamn = $_POST['Enamn'];
     $Fnamn = $_POST['Fnamn'];
     $Epost = $_POST['Epost'];
+    $TRITA_nr = $_POST['TRITA_nr'];
 
     if (strlen($Typ) > 4 and strlen($Titel) > 5 and strlen($Enamn) > 0 and strlen($Fnamn) > 0 and strlen($Epost) > 5 and strlen($KTHid) > 6) {
 
@@ -99,16 +100,17 @@
 			// Spara ISBN och publikationsuppgifter
                         if ($Typ == "Rapport") {
                            $stmt = $pdo->prepare("INSERT INTO reg_isbn 
-                		(TRITA,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
-                		VALUES (trim(:TRITA),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");
+                		(TRITA,TRITA_nr,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
+                		VALUES (trim(:TRITA),trim(:TRITA_nr),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");
                                          		
 			}
 			else {
                            $stmt = $pdo->prepare("INSERT INTO reg_isbn 
-                		(TRITA,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
-                		VALUES (trim(:TRITA),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");     
+                		(TRITA,TRITA_nr,Epost,KTH_id,Fnamn,Enamn,ISBN,Pubtyp,Titel,Regdatum) 
+                		VALUES (trim(:TRITA),trim(:TRITA_nr),trim(:Epost),:KTHid,:Fnamn,:Enamn,:isbn,:Typ,:Titel,CURDATE())");     
 			}
 			$stmt->bindParam(':TRITA', $TRITA);
+			$stmt->bindParam(':TRITA_nr', $TRITA_nr);
                         $stmt->bindParam(':Epost', $Epost);
                         $stmt->bindParam(':KTHid', $KTHid);
                         $stmt->bindParam(':Fnamn', $Fnamn);
