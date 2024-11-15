@@ -14,7 +14,7 @@
 
     <meta charset="utf-8">
 
-    <title>ÅTERSTÄLL ISBN</title>
+    <title>ÄNDRA UPPGIFTER OM REGISTRERAT ISBN</title>
 	
     <link href="Site_utan_storlek.css" rel="stylesheet"> 
 
@@ -86,22 +86,19 @@
             $stmt->execute();                                                                                       
              
             echo '<script language="javascript">';
-            echo 'alert("Hoho!")';
+            echo 'alert("Ändringen är sparad!")';
             echo '</script>';                            
         }
         catch (PDOException $e) {
             echo '<script language="javascript">';
-            echo 'alert("Fel vid återställning!")';
+            echo 'alert("Fel vid sparande!")';
             echo '</script>';
-
-	// RULLA TILLBAKA TRANSAKTION
-	    $pdo->rollBack();
         }
     }
 
 ?>
 
-<h2>ÅTERSTÄLL ISBN</h2>	
+<h2>ÄNDRA UPPGIFTER OM REGISTRERAT ISBN</h2>	
 	                                    
 	<form name="ISBNForm" onsubmit="return validateForm()" action="d_aterstall.php" method="post">
 
