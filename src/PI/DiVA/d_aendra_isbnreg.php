@@ -14,7 +14,7 @@
 
     <meta charset="utf-8">
 
-    <title>ÄNDRA UPPG ISBN</title>
+    <title>ÄNDRA REGISTRERADE UPPGIFTER ISBN</title>
 	
     <link href="Site_utan_storlek.css" rel="stylesheet"> 
 
@@ -80,7 +80,7 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // PÅBÖRJA TRANSAKTIONEN
-	        $pdo->beginTransaction();                                                                                             
+	                                                                                                    
 
             // ÄNDRA UPPG OM ISBN
             $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN = :ISBN"); 
@@ -88,42 +88,31 @@
             $stmt->bindParam(':Titel', $Titel);
             $stmt->execute();
              
-            // AVSLUTA TRANSAKTIONEN
-            $pdo->commit();  
-    	    $ISBN = "";
-    	    $Titel = "";
-    	    $Forskare = "";
-    	    $KTH_id = "";
-    	    $Pubtyp = "";
-    	    $TRITA = "";
-    	    $Epost = "";
-            $Dispdatum = "";
-            $Regdatum = "";
-            $Handl = "";
-            $Kommentar = ""; 
+            
+            
             echo '<script language="javascript">';
-            echo 'alert("ISBN är nu återställt!")';
+            echo 'alert("Ändringen är nu sparad!")';
             echo '</script>';                            
         }
         catch (PDOException $e) {
             echo '<script language="javascript">';
-            echo 'alert("Fel vid återställning!")';
+            echo 'alert("Fel vid sparande!")';
             echo '</script>';
 
-	// RULLA TILLBAKA TRANSAKTION
-	    $pdo->rollBack();
+	
+	    
         }
     }
 
 ?>
 
-<h2>ÄNDRA UPPG ISBN</h2>	
+<h2>ÄNDRA REGISTRERADE UPPGIFTER ISBN</h2>	
 	                                    
 	<form name="ISBNForm" onsubmit="return validateForm()" action="d_aterstall.php" method="post">
 
                 <a href='d_soek_isbn.php'>TILL SÖK ISBN</a>&nbsp;&nbsp;
                 <a href='d_isbn_meny.php'>TILL MENYN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" name="spara" style="background-color:#0fb821" value="Återställ"/>
+                <input type="submit" name="spara" style="background-color:#0fb821" value="Spara"/>
                 <br /><br /><br /> 
                 
 		ISBN:</br> 
