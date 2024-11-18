@@ -81,7 +81,7 @@
                 <a href='d_soek_isbn.php'>TILL SÖK ISBN</a>&nbsp;&nbsp;
                 <a href='d_isbn_meny.php'>TILL MENYN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" name="aaterstaell" style="background-color:#0fb821" value="Återställ ISBN"/>
-		<input type="submit" formaction="d_aterstall.php" name="aendra" style="background-color:#0fb821" value="Ändra titel"/>	    
+		<input type="submit" formaction="d_aendra_isbnreg.php" name="aendra" style="background-color:#0fb821" value="Ändra titel"/>	    
                 <br /><br /><br /> 
                 
 			    ISBN:</br> 
