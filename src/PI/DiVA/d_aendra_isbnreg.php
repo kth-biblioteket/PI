@@ -14,7 +14,7 @@
 
     <meta charset="utf-8">
 
-    <title>ÄNDRA UPPG ISBN</title>
+    <title>ÄNDRA REGISTRERADE UPPGIFTER ISBN</title>
 	
     <link href="Site_utan_storlek.css" rel="stylesheet"> 
 
@@ -80,71 +80,39 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // PÅBÖRJA TRANSAKTIONEN
-	        $pdo->beginTransaction();
+	                                                                                                    
 
-	        // SPARA DEN REGISTRERADE PUBLIKATIONENS UPPGIFTER FÖRE HISTORIK OCH LOGGNING
-            $stmt = $pdo->prepare("INSERT INTO bort_reg_isbn (ISBN,Titel,Fnamn,Enamn,KTH_id,Pubtyp,TRITA,Epost,Dispdatum,Regdatum,Handl,Kommentar,Returdatum) VALUES 
-            (:ISBN,:Titel,:Fnamn,:Enamn,:KTH_id,:Pubtyp,:TRITA,:Epost,:Dispdatum,:Regdatum,:Handl,:Kommentar,CURDATE())"); 
+            // ÄNDRA UPPG OM ISBN
+            $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN = :ISBN"); 
             $stmt->bindParam(':ISBN', $ISBN);
             $stmt->bindParam(':Titel', $Titel);
-            $stmt->bindParam(':Fnamn', $Fnamn);
-            $stmt->bindParam(':Enamn', $Enamn);
-            $stmt->bindParam(':KTH_id', $KTH_id);
-            $stmt->bindParam(':Pubtyp', $Pubtyp);
-            $stmt->bindParam(':TRITA', $TRITA);
-            $stmt->bindParam(':Epost', $Epost);
-            $stmt->bindParam(':Dispdatum', $Dispdatum);
-            $stmt->bindParam(':Regdatum', $Regdatum); 
-            $stmt->bindParam(':Handl', $Handl);   
-            $stmt->bindParam(':Kommentar', $Kommentar);
-            $stmt->execute();                                                                                       
-            
-            // TA BORT DEN REGISTRERADE PUBLIKATIONEN
-            $stmt = $pdo->prepare("DELETE FROM reg_isbn WHERE ISBN = :ISBN"); 
-            $stmt->bindParam(':ISBN', $ISBN);
-            $stmt->execute();
-
-            // LÄGG TILLBAKA ISBN
-            $stmt = $pdo->prepare("INSERT INTO oanv_isbn (ISBN,Importdatum) VALUES (:ISBN,CURDATE())"); 
-            $stmt->bindParam(':ISBN', $ISBN);
             $stmt->execute();
              
-            // AVSLUTA TRANSAKTIONEN
-            $pdo->commit();  
-    	    $ISBN = "";
-    	    $Titel = "";
-    	    $Forskare = "";
-    	    $KTH_id = "";
-    	    $Pubtyp = "";
-    	    $TRITA = "";
-    	    $Epost = "";
-            $Dispdatum = "";
-            $Regdatum = "";
-            $Handl = "";
-            $Kommentar = ""; 
+            
+            
             echo '<script language="javascript">';
-            echo 'alert("ISBN är nu återställt!")';
+            echo 'alert("Ändringen är nu sparad!")';
             echo '</script>';                            
         }
         catch (PDOException $e) {
             echo '<script language="javascript">';
-            echo 'alert("Fel vid återställning!")';
+            echo 'alert("Fel vid sparande!")';
             echo '</script>';
 
-	// RULLA TILLBAKA TRANSAKTION
-	    $pdo->rollBack();
+	
+	    
         }
     }
 
 ?>
 
-<h2>ÄNDRA UPPG ISBN</h2>	
+<h2>ÄNDRA REGISTRERADE UPPGIFTER ISBN</h2>	
 	                                    
 	<form name="ISBNForm" onsubmit="return validateForm()" action="d_aterstall.php" method="post">
 
                 <a href='d_soek_isbn.php'>TILL SÖK ISBN</a>&nbsp;&nbsp;
                 <a href='d_isbn_meny.php'>TILL MENYN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" name="spara" style="background-color:#0fb821" value="Återställ"/>
+                <input type="submit" name="spara" style="background-color:#0fb821" value="Spara"/>
                 <br /><br /><br /> 
                 
 		ISBN:</br> 
@@ -152,7 +120,7 @@
                 <br />
 
 		Titel:</br> 
-		<input type="text" name="Titel" value="<?php echo $Titel; ?>" size="150" disabled/>&nbsp;&nbsp; 
+		<input type="text" name="Titel" value="<?php echo $Titel; ?>" size="150" />&nbsp;&nbsp; 
                 <br />
 
                 Forskare:</br>
