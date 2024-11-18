@@ -80,33 +80,12 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // PÅBÖRJA TRANSAKTIONEN
-	        $pdo->beginTransaction();
+	        $pdo->beginTransaction();                                                                                             
 
-	        // SPARA DEN REGISTRERADE PUBLIKATIONENS UPPGIFTER FÖRE HISTORIK OCH LOGGNING
-            $stmt = $pdo->prepare("INSERT INTO bort_reg_isbn (ISBN,Titel,Fnamn,Enamn,KTH_id,Pubtyp,TRITA,Epost,Dispdatum,Regdatum,Handl,Kommentar,Returdatum) VALUES 
-            (:ISBN,:Titel,:Fnamn,:Enamn,:KTH_id,:Pubtyp,:TRITA,:Epost,:Dispdatum,:Regdatum,:Handl,:Kommentar,CURDATE())"); 
+            // ÄNDRA UPPG OM ISBN
+            $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN = :ISBN"); 
             $stmt->bindParam(':ISBN', $ISBN);
             $stmt->bindParam(':Titel', $Titel);
-            $stmt->bindParam(':Fnamn', $Fnamn);
-            $stmt->bindParam(':Enamn', $Enamn);
-            $stmt->bindParam(':KTH_id', $KTH_id);
-            $stmt->bindParam(':Pubtyp', $Pubtyp);
-            $stmt->bindParam(':TRITA', $TRITA);
-            $stmt->bindParam(':Epost', $Epost);
-            $stmt->bindParam(':Dispdatum', $Dispdatum);
-            $stmt->bindParam(':Regdatum', $Regdatum); 
-            $stmt->bindParam(':Handl', $Handl);   
-            $stmt->bindParam(':Kommentar', $Kommentar);
-            $stmt->execute();                                                                                       
-            
-            // TA BORT DEN REGISTRERADE PUBLIKATIONEN
-            $stmt = $pdo->prepare("DELETE FROM reg_isbn WHERE ISBN = :ISBN"); 
-            $stmt->bindParam(':ISBN', $ISBN);
-            $stmt->execute();
-
-            // LÄGG TILLBAKA ISBN
-            $stmt = $pdo->prepare("INSERT INTO oanv_isbn (ISBN,Importdatum) VALUES (:ISBN,CURDATE())"); 
-            $stmt->bindParam(':ISBN', $ISBN);
             $stmt->execute();
              
             // AVSLUTA TRANSAKTIONEN
@@ -152,7 +131,7 @@
                 <br />
 
 		Titel:</br> 
-		<input type="text" name="Titel" value="<?php echo $Titel; ?>" size="150" disabled/>&nbsp;&nbsp; 
+		<input type="text" name="Titel" value="<?php echo $Titel; ?>" size="150" />&nbsp;&nbsp; 
                 <br />
 
                 Forskare:</br>
