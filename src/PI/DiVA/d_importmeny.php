@@ -43,7 +43,7 @@
 <br /><br />
 
 <br /><br /><br /><br />
-<a href='d_h_meny.php'>TILL MENYN</a>
+<a href='index.php'>TILL MENYN</a>
 
 </body>
 </html>
