@@ -111,7 +111,7 @@
 
 <h2>ÄNDRA REGISTRERADE UPPGIFTER ISBN</h2>	
 	                                    
-	<form name="ISBNForm" onsubmit="return validateForm()" action="d_aterstall.php" method="post">
+	<form name="ISBNForm" onsubmit="return validateForm()" action="d_aendra_isbnreg.php" method="post">
 
                 <a href='d_soek_isbn.php'>TILL SÖK ISBN</a>&nbsp;&nbsp;
                 <a href='d_isbn_meny.php'>TILL MENYN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -152,19 +152,6 @@
 
 		Registreringsdatum:</br> 
 		<input type="text" name="Regdatum" value="<?php echo $Regdatum; ?>" size="20" disabled/>&nbsp;&nbsp; 
-                <br />
-
-                Handläggare:<br />
-                <select id="Handlista">
-                    <option value=""></option>
-                    <option value="Michael">Michael</option>
-                    <option value="Cecilia">Cecilia</option>
-                    <option value="Greta">Greta</option>
-                    <option value="Johan">Johan</option>
-                    <option value="Anders">Anders</option>
-                    <option value="Margareta">Margareta</option>
-                    <option value="Ulf">Ulf</option>
-                </select>
                 <br />
 
 		Kommentar:</br> 
