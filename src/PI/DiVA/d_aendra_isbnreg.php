@@ -68,7 +68,9 @@
             // ÄNDRA UPPG OM ISBN
 		
             
-             
+   $stmt = $pdo->prepare("SELECT  FROM reg_isbn WHERE KTH_id = :KTHid");
+    $stmt->bindParam(':KTHid', $KTHid);
+    $stmt->execute();          
             
             
             echo '<script language="javascript">';
