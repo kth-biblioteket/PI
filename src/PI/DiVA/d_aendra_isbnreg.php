@@ -74,7 +74,7 @@
  $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
     $stmt->bindParam(':KTHid', $KTH_id);
 		
-    
+   $stmt->execute(); 
 
     foreach ($stmt as $row) {
         $minstISBN = $row['ISBN'];        
