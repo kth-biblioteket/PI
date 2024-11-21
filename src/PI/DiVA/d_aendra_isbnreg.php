@@ -77,7 +77,7 @@
      echo  $minstISBN;
 
 		echo $KTH_id;
-             
+             echo 'HEJSAN';
             
             
             echo '<script language="javascript">';
