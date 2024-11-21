@@ -59,6 +59,8 @@
     
     $Titel = str_replace($Sk, $Ers, $Titel);
 
+
+
     if (isset($_POST['spara'])) {
         try {
             $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -68,10 +70,11 @@
 
             // ÄNDRA UPPG OM ISBN
 		
-            
-   $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
+
+ $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
     $stmt->bindParam(':KTHid', $KTH_id);
-    $stmt->execute();          
+		
+    
 
     foreach ($stmt as $row) {
         $minstISBN = $row['ISBN'];        
@@ -80,7 +83,7 @@
 
 		echo $KTH_id;
              echo 'HEJSAN';
-		
+echo $stmt;
             echo '<script language="javascript">';
             echo 'alert("Ändringen är nu sparad!")';
             echo '</script>';                            
