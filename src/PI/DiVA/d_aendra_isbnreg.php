@@ -21,17 +21,7 @@
 
     <script type="text/javascript">
 
-    function validateForm() {
-
-        document.getElementById("Handl").value = handl;
-        // Kommentarsfältet
-        var kom = document.forms["ISBNForm"]["Kommentar"].value;
-        if (kom == null || kom == "" || kom.length < 10) {
-            alert("Kommentar måste anges!");
-            return false;
-        }
-
-    }
+    
 
     </script>
 	
@@ -74,7 +64,7 @@
  $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
     $stmt->bindParam(':KTHid', $KTH_id);
 		
-   $stmt->execute(); 
+    $stmt->execute();
 
     foreach ($stmt as $row) {
         $minstISBN = $row['ISBN'];        
@@ -155,3 +145,4 @@
 </body>
 
 </html>
+
