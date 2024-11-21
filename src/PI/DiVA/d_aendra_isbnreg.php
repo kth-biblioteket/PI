@@ -61,17 +61,12 @@
             // ÄNDRA UPPG OM ISBN
 		
 
- $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
-    $stmt->bindParam(':KTHid', $KTH_id);
-		
-    $stmt->execute();
+ 
 
-    foreach ($stmt as $row) {
-        $minstISBN = $row['ISBN'];        
-    }
-     echo  $minstISBN;
+    
 
 		echo $KTH_id;
+		echo $Titel;
              echo 'HEJSAN';
 
             echo '<script language="javascript">';
