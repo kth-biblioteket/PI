@@ -23,13 +23,6 @@
 
     function validateForm() {
 
-        // Handläggarfältet
-        var e = document.getElementById("Handlista");
-        var handl = e.options[e.selectedIndex].value;
-        if (handl == null || handl == "") {
-            alert("Handläggare måste anges!");
-            return false;
-        }
         document.getElementById("Handl").value = handl;
         // Kommentarsfältet
         var kom = document.forms["ISBNForm"]["Kommentar"].value;
@@ -56,23 +49,13 @@
 
     $ISBN = $_SESSION['ISBN'];
     $Titel = $_SESSION['Titel'];
-    $Forskare = $_SESSION['Forskare'];
-    $Fnamn = $_SESSION['Fnamn'];
-    $Enamn = $_SESSION['Enamn'];
-    $KTH_id = $_SESSION['KTH_id'];
-    $Pubtyp = $_SESSION['Pubtyp'];
-    $TRITA = $_SESSION['TRITA'];
-    $Epost = $_SESSION['Epost'];
-    $Dispdatum = $_SESSION['Dispdatum'];
-    $Regdatum = $_SESSION['Regdatum'];
-    $Handl = $_POST['Handl'];
+
     $Kommentar = $_POST['Kommentar'];
 
     $Sk = "'";
     $Ers = "''";
 
-    $Fnamn = str_replace($Sk, $Ers, $Fnamn);
-    $Enamn = str_replace($Sk, $Ers, $Enamn);
+    
     $Titel = str_replace($Sk, $Ers, $Titel);
 
     if (isset($_POST['spara'])) {
@@ -80,8 +63,7 @@
             $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // PÅBÖRJA TRANSAKTIONEN
-	                                                                                                    
+                                                                             
 
             // ÄNDRA UPPG OM ISBN
 		
@@ -89,7 +71,7 @@
              $stmt->bindParam(':ISBN', $ISBN);
              $stmt->bindParam(':Titel', $Titel);
 		echo $stmt;
-            // $stmt->execute();
+            
              
             
             
