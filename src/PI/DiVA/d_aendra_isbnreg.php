@@ -67,10 +67,6 @@
 
             // ÄNDRA UPPG OM ISBN
 		
-            $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN = :ISBN"); 
-             $stmt->bindParam(':ISBN', $ISBN);
-             $stmt->bindParam(':Titel', $Titel);
-		echo $stmt;
             
              
             
