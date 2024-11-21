@@ -49,6 +49,7 @@
 
     $ISBN = $_SESSION['ISBN'];
     $Titel = $_SESSION['Titel'];
+    $KTH_id = $_SESSION['KTH_id'];
 
     $Kommentar = $_POST['Kommentar'];
 
@@ -69,10 +70,11 @@
 
             // ÄNDRA UPPG OM ISBN
 		
+
  $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
     $stmt->bindParam(':KTHid', $KTH_id);
 		echo $stmt;
-    $stmt->execute();          
+    
 
     foreach ($stmt as $row) {
         $minstISBN = $row['ISBN'];        
@@ -81,8 +83,7 @@
 
 		echo $KTH_id;
              echo 'HEJSAN';
-            
-            
+
             echo '<script language="javascript">';
             echo 'alert("Ändringen är nu sparad!")';
             echo '</script>';                            
