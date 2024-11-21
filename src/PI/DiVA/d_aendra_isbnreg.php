@@ -73,7 +73,7 @@
 
  $stmt = $pdo->prepare("SELECT ISBN FROM reg_isbn WHERE KTH_id = :KTHid");
     $stmt->bindParam(':KTHid', $KTH_id);
-		echo $stmt;
+		
     
 
     foreach ($stmt as $row) {
@@ -83,7 +83,7 @@
 
 		echo $KTH_id;
              echo 'HEJSAN';
-
+echo $stmt;
             echo '<script language="javascript">';
             echo 'alert("Ändringen är nu sparad!")';
             echo '</script>';                            
