@@ -77,6 +77,9 @@
         $minstISBN = $row['ISBN'];        
     }
      echo  $minstISBN;
+
+		echo $KTH_id;
+             echo 'HEJSAN';
 		
             echo '<script language="javascript">';
             echo 'alert("Ändringen är nu sparad!")';
