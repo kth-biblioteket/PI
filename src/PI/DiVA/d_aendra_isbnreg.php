@@ -83,7 +83,7 @@
 
 		echo $KTH_id;
              echo 'HEJSAN';
-echo $stmt;
+
             echo '<script language="javascript">';
             echo 'alert("Ändringen är nu sparad!")';
             echo '</script>';                            
