@@ -39,36 +39,29 @@
 
     $ISBN = $_SESSION['ISBN'];
     $Titel = $_SESSION['Titel'];
-    $KTH_id = $_SESSION['KTH_id'];
-
-    $Sk = "'";
-    $Ers = "''";
-
-    
-    $Titel = str_replace($Sk, $Ers, $Titel);                                                                             
-
+    $KTH_id = $_SESSION['KTH_id'];                                                             
 
     if (isset($_POST['spara'])) {
         try {
             $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
    
-
+$Ny_titel = $_POST['Titel'];
     
-
+    $Sk = "'";
+    $Ers = "''";
+    
+    $Titel = str_replace($Sk, $Ers, $Ny_titel);   
     
             // ÄNDRA UPPG OM ISBN
 		
-
 $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN= :ISBN");
     $stmt->bindParam(':ISBN', $ISBN);
     $stmt->bindParam(':Titel', $Titel);	
     $stmt->execute();
+
+		$_SESSION['Titel'] = $Titel; 
  
-
-    
-
 		echo $ISBN;
 		echo $Titel;
              echo 'HEJSAN';
@@ -80,9 +73,7 @@ $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN= :ISBN");
         catch (PDOException $e) {
             echo '<script language="javascript">';
             echo 'alert("Fel vid sparande!")';
-            echo '</script>';
-
-	
+            echo '</script>';	
 	    
         }
     }
