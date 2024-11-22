@@ -37,20 +37,9 @@
     $password = $_SESSION['ord'];
     $dbname = "hant_isbn";
 
-
-
-
-
-    if (isset($_POST['spara'])) {
-        try {
-            $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     $ISBN = $_SESSION['ISBN'];
     $Titel = $_SESSION['Titel'];
     $KTH_id = $_SESSION['KTH_id'];
-
-    $Kommentar = $_POST['Kommentar'];
 
     $Sk = "'";
     $Ers = "''";
@@ -58,6 +47,17 @@
     
     $Titel = str_replace($Sk, $Ers, $Titel);                                                                             
 
+
+    if (isset($_POST['spara'])) {
+        try {
+            $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+   
+
+    
+
+    
             // ÄNDRA UPPG OM ISBN
 		
 
