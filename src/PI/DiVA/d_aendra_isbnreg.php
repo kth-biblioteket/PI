@@ -66,7 +66,7 @@
 
     
 
-		echo $KTH_id;
+		echo $ISBN;
 		echo $Titel;
              echo 'HEJSAN';
 
