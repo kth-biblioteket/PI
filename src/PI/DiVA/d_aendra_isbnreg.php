@@ -62,9 +62,7 @@ $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN= :ISBN");
 
 		$_SESSION['Titel'] = $Titel; 
  
-		echo $ISBN;
-		echo $Titel;
-             echo 'HEJSAN';
+		
 
             echo '<script language="javascript">';
             echo 'alert("Ändringen är nu sparad!")';
