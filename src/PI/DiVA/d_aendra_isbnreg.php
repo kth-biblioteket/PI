@@ -122,11 +122,7 @@ $stmt = $pdo->prepare("UPDATE reg_isbn SET Titel = :Titel WHERE ISBN= :ISBN");
 		Registreringsdatum:</br> 
 		<input type="text" name="Regdatum" value="<?php echo $Regdatum; ?>" size="20" disabled/>&nbsp;&nbsp; 
                 <br />
-
-		Kommentar:</br> 
-		<input type="text" name="Kommentar" size="100"/> 
-                
-                <input type="text" name="Handl" id="Handl" size="20"  hidden/>                   
+               
     				
 	</form>
 								
