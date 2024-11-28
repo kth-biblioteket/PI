@@ -55,7 +55,7 @@
         $stmt = $pdo->prepare($sql);
         
         $stmt->execute();
-        //echo $sql;
+        echo $sql;
     } 
     catch (PDOException $e) {
           echo '<script language="javascript">';
