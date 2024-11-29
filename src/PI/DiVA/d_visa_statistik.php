@@ -48,7 +48,7 @@
     sum(CASE d.Pubtyp WHEN 'Licentiatuppsats' THEN 1 ELSE 0 END) AS L2, sum(CASE d.Pubtyp WHEN 'Rapport' 
     THEN 1 ELSE 0 END) AS R,count(*) AS Total FROM reg_isbn d INNER JOIN reg_isbn d_y ON d.ISBN = d_y.ISBN 
     INNER JOIN reg_isbn d_n ON d.ISBN = d_n.ISBN WHERE d.Regdatum > '2024-03-31' and d.Regdatum <= '2024-05-31' 
-    GROUP BY Y, M ORDER BY d.Regdatum;";
+    GROUP BY Y, M ORDER BY d.Regdatum";
 
     try {
         $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -57,7 +57,7 @@
         $stmt = $pdo->prepare($sql);
         
         $stmt->execute();
-        echo $sql;
+        
     } 
     catch (PDOException $e) {
           echo '<script language="javascript">';
@@ -78,7 +78,7 @@
 			echo "<td>" . $row['Y'] . "</td>";
 			echo "<td>" . $row['M'] . "</td>";  
 			echo "<td>" . $row['D'] . "</td>";     
-			echo "<td>" . $row['L'] + $row[L2] . "</td>"; 
+			echo "<td>" . $row['L'] + $row['L2'] . "</td>"; 
  			echo "<td>" . $row['R'] . "</td>";     
 			echo "<td>" . $row['Total'] . "</td>";                                                                 						
 			echo "</tr>";
