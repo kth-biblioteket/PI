@@ -47,7 +47,7 @@
     THEN 1 ELSE 0 END) AS D, sum(CASE WHEN d.Pubtyp ='Licentiatavhandling' OR d.Pubtyp = 'Licentiatuppsats' THEN 1 ELSE 0 END) AS L, 
     sum(CASE d.Pubtyp WHEN 'Rapport' 
     THEN 1 ELSE 0 END) AS R,count(*) AS Total FROM reg_isbn d INNER JOIN reg_isbn d_y ON d.ISBN = d_y.ISBN 
-    INNER JOIN reg_isbn d_n ON d.ISBN = d_n.ISBN WHERE d.Regdatum > '2024-03-31' and d.Regdatum <= '2024-05-31' 
+    INNER JOIN reg_isbn d_n ON d.ISBN = d_n.ISBN WHERE d.Regdatum > '2017-03-31' 
     GROUP BY Y, M ORDER BY d.Regdatum";
 
     try {
