@@ -40,13 +40,15 @@
 //            SUM(CASE d.Pubtyp WHEN 'Doktorsavhandling' THEN 1 ELSE 0 END) AS D,sum(CASE d.Pubtyp WHEN 'Licentiatavhandling' THEN 1 ELSE 0 END) AS L,sum(CASE d.Pubtyp WHEN 'Rapport' THEN 1 ELSE 0 END) AS R,count(*) AS Total
 //            FROM reg_isbn d INNER JOIN reg_isbn d_y ON d.ISBN = d_y.ISBN INNER JOIN reg_isbn d_n ON d.ISBN = d_n.ISBN group by Y, M";
 
-    $sql = "SELECT YEAR(d.Regdatum) AS Y,
-            (CASE MONTH(d.Regdatum) WHEN 1 THEN 'Januari' WHEN 2 THEN 'Februari' WHEN 3 THEN 'Mars' WHEN 4 THEN 'April' WHEN 5 THEN 'Maj' WHEN 6 THEN 'Juni' 
-             WHEN 7 THEN 'Juli' WHEN 8 THEN 'Augusti' WHEN 9 THEN 'September' WHEN 10 THEN 'Oktober' WHEN 11 THEN 'November' ELSE 'December' END) AS M,
-            SUM(CASE d.Pubtyp WHEN 'Doktorsavhandling' THEN 1 ELSE 0 END) AS D,sum(CASE d.Pubtyp WHEN 'Licentiatavhandling' OR 'Licentiatuppsats' THEN 1 ELSE 0 END) AS L,sum(CASE d.Pubtyp WHEN 'Rapport' THEN 1 ELSE 0 END) AS R,count(*) AS Total
-            FROM reg_isbn d INNER JOIN reg_isbn d_y ON d.ISBN = d_y.ISBN INNER JOIN reg_isbn d_n ON d.ISBN = d_n.ISBN WHERE d.Regdatum > '2017-03-31'
-            GROUP BY Y, M 
-            ORDER BY d.Regdatum";
+    $sql = "SELECT count(*) as x, YEAR(d.Regdatum) AS Y, (CASE MONTH(d.Regdatum) WHEN 1 THEN 'Januari' 
+    WHEN 2 THEN 'Februari' WHEN 3 THEN 'Mars' WHEN 4 THEN 'April' WHEN 5 THEN 'Maj' WHEN 6 THEN 'Juni' 
+    WHEN 7 THEN 'Juli' WHEN 8 THEN 'Augusti' WHEN 9 THEN 'September' WHEN 10 THEN 'Oktober' WHEN 11 
+    THEN 'November' ELSE 'December' END) AS M, SUM(CASE d.Pubtyp WHEN 'Doktorsavhandling' 
+    THEN 1 ELSE 0 END) AS D, sum(CASE d.Pubtyp WHEN 'Licentiatavhandling' THEN 1 ELSE 0 END) AS L, 
+    sum(CASE d.Pubtyp WHEN 'Licentiatuppsats' THEN 1 ELSE 0 END) AS L2, sum(CASE d.Pubtyp WHEN 'Rapport' 
+    THEN 1 ELSE 0 END) AS R,count(*) AS Total FROM reg_isbn d INNER JOIN reg_isbn d_y ON d.ISBN = d_y.ISBN 
+    INNER JOIN reg_isbn d_n ON d.ISBN = d_n.ISBN WHERE d.Regdatum > '2024-03-31' and d.Regdatum <= '2024-05-31' 
+    GROUP BY Y, M ORDER BY d.Regdatum;";
 
     try {
         $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
