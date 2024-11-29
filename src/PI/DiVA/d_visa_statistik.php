@@ -78,7 +78,7 @@
 			echo "<td>" . $row['Y'] . "</td>";
 			echo "<td>" . $row['M'] . "</td>";  
 			echo "<td>" . $row['D'] . "</td>";     
-			echo "<td>" . $row['L'] . "</td>"; 
+			echo "<td>" . $row['L'] + $row[L2] . "</td>"; 
  			echo "<td>" . $row['R'] . "</td>";     
 			echo "<td>" . $row['Total'] . "</td>";                                                                 						
 			echo "</tr>";
