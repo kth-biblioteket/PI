@@ -921,8 +921,9 @@ Tar bort copyright-texter i Abstract <br />
                     <option value="Cecilia">Cecilia</option>
                     <option value="Greta">Greta</option>
                     <option value="Johan">Johan</option>
-                    <option value="Sam">Sam</option>
+                    <option value="Michael">Michael</option>
                     <option value="Ulf">Ulf</option>
+		    <option value="Margareta">Margareta</option>	
                 </select>
                 <br /><br />
                 
