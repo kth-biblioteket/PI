@@ -162,6 +162,7 @@
         $message = 'Publikationen ' . $TitelUt . ' får ISBN: ' . $isbn;
         $mail->setFrom('biblioteket@kth.se');
         $mail->addAddress($Epost);
+	$mail->addAddress('cecwik@kth.se');
         $mail->Subject  = 'Nytt ISBN';
         $mail->Body     = $message;
         if(!$mail->send()) {
@@ -171,8 +172,8 @@
         else {
            echo ' Meddelande har skickats.';
         }
-        $mail->addAddress('cecwik@kth.se');
-        $mail->send();
+        
+        //$mail->send();
 		// SKICKA PÅMINNELSE OM ANTAL ISBN NÅTT MINIMINIVÅ
                 $sql_antal = "SELECT COUNT(*) AS Antal FROM oanv_isbn";
                 $stmt = $pdo->query( $sql_antal );
