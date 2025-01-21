@@ -149,7 +149,7 @@
                 $headers .= 'Content-Transfer-Encoding: 8bit' . "\r\n"; 
                 $headers .= 'From: publicering@kth.se' . "\r\n" . 'Reply-To: publicering@kth.se' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
                 mail($Epost, 'Nytt ISBN', $message, $headers);
-                mail('cecwik@kth.se', 'Nytt ISBN', $message, $headers);
+                mail('biblioteket@kth.se', 'Nytt ISBN', $message, $headers);
         */
         require_once($_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/PHPMailerAutoload.php');
         $mail = new PHPMailer; 
