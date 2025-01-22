@@ -162,7 +162,7 @@
         $message = 'The publication ' . $TitelUt . ' got ISBN: ' . $isbn;
         $mail->setFrom('biblioteket@kth.se');
         $mail->addAddress($Epost);
-	$mail->addAddress('cecwik@kth.se');	
+	$mail->addAddress('biblioteket@kth.se');	
         $mail->Subject  = 'Requested ISBN';
         $mail->Body     = $message;
         if(!$mail->send()) {
