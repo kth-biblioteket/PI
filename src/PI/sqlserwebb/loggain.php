@@ -51,7 +51,7 @@ function validateForm() {
             $username = $anv;
             $password = $ord;
             //$hostname = "bibmet.ug.kth.se";
-            $hostname = "bibmet-prod.ug.kth.se";
+            $hostname = "bibmet01.ug.kth.se";
             $dbname = "BIBSTAT";
             $dbh = new PDO("sqlsrv:Server=$hostname;Database=$dbname",$username,$password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
